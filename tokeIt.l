@@ -352,11 +352,11 @@ this              { yylval.number = 0;  return THIS;        }
 
 at|@    {yylval.string = yytext; return ARTICLEPREP; } 
 the         ;
-[ \t,]       ;       /* skip whitespace */
 \+|plus       { yylval.number = 1; return PLUS;}
 
 
-.           yyerror("Unknown character");
+; /* .           yyerror("Unknown character"); */
+.       {yylval.string = yytext; return EXTRA; }
 
 %%
 

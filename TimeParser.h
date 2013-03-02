@@ -63,3 +63,6 @@ void setFinalTime(struct tm *temp, int amount[], int *change);
 void itoa(int n, char s[]);
 
 time_t parseDateTimeString(const char *str);
+char* returnExtra();
+
+char extra[1024];

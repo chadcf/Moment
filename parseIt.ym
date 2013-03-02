@@ -2,6 +2,7 @@
 #include <stdio.h>
 #import <Foundation/Foundation.h>
 #include "TimeParser.h"
+#define MYSTRDUP(str,lit) strcpy(malloc(strlen(lit)+1),lit)
 
 int yylex(void);
 void yyerror(char *);
@@ -17,7 +18,7 @@ char *string;
 }
 
 %token <number>INTEGER DTPOSITION DAYOFWEEK MONTHNUM GENERALTIME  MODIFIERS FROM LASTNEXT BEFOREAFTER HENCEAGO IN THIS NOW INTHE PLUS SETDATE
-%token <string>MONTH  PASTMODIFIER WHENTIME TYPENAMES DTMODIFIERS ARTICLEPREP  MILITARYTIME
+%token <string>MONTH  PASTMODIFIER WHENTIME TYPENAMES DTMODIFIERS ARTICLEPREP  MILITARYTIME EXTRA
 
 %%
 
@@ -138,7 +139,13 @@ FROM expr     {
 SETDATE     { }
 |
 ARTICLEPREP {}
-| 
+|
+EXTRA   {
+// TODO: better memory management here
+  strcat(extra, $<string>1);
+}
+
+|
 IN      { }
 |
 THIS    { }

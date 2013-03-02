@@ -406,3 +406,7 @@ time_t parseDateTimeString(const char *str)
     return mktime(str_time);
     
 }
+
+char *returnExtra( ) {
+  return extra;
+}
