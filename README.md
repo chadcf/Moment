@@ -1,6 +1,11 @@
 Moment
 ======
 
+(in case anyone ever stumbles here... this is a fork of moment which
+adds support for fetching unparsable information from an input string,
+so that an event description can be used in addition to the date similar
+to google calendar)
+
 Natural Language Date/Time Parser Using Lex/Yacc/C  
 
 Moment handles simple and complex expressions.  Because it's written in C, it can easily be transferred to many other languages. 
